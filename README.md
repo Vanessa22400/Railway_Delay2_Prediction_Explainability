@@ -75,9 +75,9 @@ This project does not repeat the full EDA from the previous study, but key struc
 - **Rush hour amplifies impact:** peak periods increase mean delays (3.83 vs. 2.77 minutes).
 
 These patterns shape both model framing and interpretation.
+ 
+![Weekly delay pattern](Images/Average_Train_Delay_Weekday.png)  
 
-Optional figure (if you want one visual in this section):  
-![Weekly delay pattern](images/Average_Train_Delay_Weekday.png)  
 *Average delay by weekday. Mondays show consistently higher delays.*
 
 ---
@@ -148,10 +148,10 @@ Different service categories show different delay contributions, supporting diff
 Explainability improves transparency, making it easier to communicate why certain situations are predicted as higher risk.
 
 Optional figures (recommended, because they look strong for recruiters):  
-![SHAP summary plot](images/fig_shap_summary.png)  
+![SHAP summary plot](Images/1.Global Feature Importance.png)  
 *Global SHAP summary showing which features drive delay predictions.*  
 
-![SHAP bar importance](images/fig_shap_bar.png)  
+![SHAP bar importance](Images/2.Feature Impact Distribution.png)  
 *Global feature importance ranked by SHAP contribution.*
 
 ---
