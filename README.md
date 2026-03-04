@@ -7,11 +7,27 @@
 
 ---
 
+## Project Series
+
+This project is part of a two-stage analysis of railway delays at **Tübingen Hauptbahnhof**.
+
+1. **Railway Delay Analysis - Tübingen (Germany)**  
+Exploratory analysis and statistical investigation of operational delay patterns.
+
+2. **Railway Delay Modeling & Explainability - Tübingen (Germany)** *(this project)*  
+Application of advanced machine learning models and explainability techniques to understand the structural drivers of railway delays.
+
+---
+
 ## Business Context
 
-This project is a continuation of my previous analysis of railway delays at Tübingen Hbf. In the first study, I used exploratory analysis and hypothesis testing to confirm real operational patterns (weekday fragility, rush-hour amplification, service-type differences, and directional bottlenecks). That work also highlighted a practical limitation: predicting the exact delay duration can be unstable in a complex railway network.
+Reliable public transportation plays an important role in daily mobility in Germany, especially for commuters and students who depend on rail services.
 
-Building on those findings, this second project focuses on **predictive reliability**, **model comparison**, and **interpretability** under real-world constraints. The goal is not only to predict delays, but also to understand **why** models make certain predictions and which operational features matter most.
+In the previous project, exploratory analysis of railway operations at **Tübingen Hauptbahnhof** revealed recurring delay patterns, including weekday fragility, service-type differences and peak-hour effects.
+
+However, predicting the **exact duration of delays** proved difficult due to the complex and often unpredictable nature of railway systems.
+
+This second project therefore focuses on **predictive modeling and explainability**, evaluating whether advanced machine learning techniques can improve predictions and provide deeper insight into the operational factors behind delays.
 
 ---
 
@@ -98,28 +114,42 @@ A key design choice in this project is **cyclical time representation** (hour_si
 
 ## Model Performance
 
-### **Baseline: Random Forest**
+### **Random Forest (Baseline)**
 
-#### Regression  
-- MAE: 2.42 minutes  
-- RMSE: 5.41 minutes  
+Two predictive tasks were evaluated.
 
-#### Classification (Critical delays > 5 minutes)  
-- Accuracy: 0.87  
-- Critical delay precision (Class 1): 0.67  
-- Critical delay recall (Class 1): 0.35  
+#### Regression (predicting delay duration in minutes)
+- MAE: **2.42 minutes** 
+- RMSE: **5.41 minutes**
 
-The baseline models capture routine operational patterns reasonably well. However, recall for critical delays remains limited, reflecting the reality that severe disruptions are often driven by irregular events not present in the dataset.
+The  results indicate that routine delay durations can be estimated with relatively low average error, suggesting that common operational patterns are captured by the model.
 
-### **Boosting Models: XGBoost, LightGBM, CatBoost**
+#### Classification (predicting critical delays > 5 minutes)  
+- Accuracy: **0.87**  
+- Precision: **0.67**  
+- Recall: **0.35**  
 
-#### Regression (MAE)  
-- XGBoost: 2.42  
-- LightGBM: 2.48  
-- **CatBoost: 2.30 (best MAE)**  
+While overall accuracy is high (0.87), recall remains limited (0.35), meaning that many severe disruptions are still difficult to detect. This likely reflects irregular events that are not represented in the dataset.
 
-#### Classification  
-Overall accuracy remained high across models, but **critical delay recall did not improve meaningfully**. This suggests that the main barrier is not algorithm choice, but structural uncertainty in the available features.
+
+### **Gradient Boosting Models**
+To evaluate whether more advanced models could improve predictions, three boosting algorithms were tested: **XGBoost, LightGBM and CatBoost**.
+
+#### **Regression performance (MAE)**
+
+- XGBoost MAE: **2.42 minutes**  
+- LightGBM MAE: **2.48 minutes**  
+- CatBoost MAE: **2.30 minutes**
+
+Among the models tested, **CatBoost achieved the lowest MAE**, indicating slightly better performance in estimating delay duration.
+
+#### **Classification performance (accuracy / recall for critical delays)**
+
+- XGBoost: Accuracy **0.86**, Recall **0.31**  
+- LightGBM: Accuracy **0.87**, Recall **0.35**  
+- CatBoost: Accuracy **0.86**, Recall **0.31**
+
+Overall, classification performance remained similar to the baseline model. Recall for critical delays stayed between **0.31–0.35**, suggesting that rare disruption events remain difficult to predict with the available features.
 
 ---
 
