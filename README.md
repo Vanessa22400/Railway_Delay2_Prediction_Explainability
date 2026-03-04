@@ -98,28 +98,27 @@ A key design choice in this project is **cyclical time representation** (hour_si
 
 ## Model Performance
 
-**Baseline: Random Forest**
+### **Baseline: Random Forest**
 
-Regression  
+#### Regression  
 - MAE: 2.42 minutes  
 - RMSE: 5.41 minutes  
 
-Classification (Critical delays > 5 minutes)  
+#### Classification (Critical delays > 5 minutes)  
 - Accuracy: 0.87  
 - Critical delay precision (Class 1): 0.67  
 - Critical delay recall (Class 1): 0.35  
 
-Interpretation  
 The baseline models capture routine operational patterns reasonably well. However, recall for critical delays remains limited, reflecting the reality that severe disruptions are often driven by irregular events not present in the dataset.
 
-**Boosting Models: XGBoost, LightGBM, CatBoost**
+### **Boosting Models: XGBoost, LightGBM, CatBoost**
 
-Regression (MAE)  
+#### Regression (MAE)  
 - XGBoost: 2.42  
 - LightGBM: 2.48  
 - **CatBoost: 2.30 (best MAE)**  
 
-Classification  
+#### Classification  
 Overall accuracy remained high across models, but **critical delay recall did not improve meaningfully**. This suggests that the main barrier is not algorithm choice, but structural uncertainty in the available features.
 
 ---
@@ -135,17 +134,13 @@ Overall accuracy remained high across models, but **critical delay recall did no
 
 ## Business Impact & Applications
 
-**Predictive delay monitoring**  
-Use regression predictions to estimate routine delay minutes and track performance trends over time.
+**Predictive delay monitoring**: Use regression predictions to estimate routine delay minutes and track performance trends over time.
 
-**Route-level risk assessment**  
-Route structure variables (ride and station sequence) indicate corridor-dependent behavior, helping identify recurring bottlenecks.
+**Route-level risk assessment**: Route structure variables (ride and station sequence) indicate corridor-dependent behavior, helping identify recurring bottlenecks.
 
-**Operational optimization**  
-Different service categories show different delay contributions, supporting differentiated buffer strategies and schedule planning.
+**Operational optimization**: Different service categories show different delay contributions, supporting differentiated buffer strategies and schedule planning.
 
-**Decision support and communication**  
-Explainability improves transparency, making it easier to communicate why certain situations are predicted as higher risk.
+**Decision support and communication**: Explainability improves transparency, making it easier to communicate why certain situations are predicted as higher risk.
 
 
 ![SHAP summary plot](Images/global_feature_importance.png)  
@@ -168,3 +163,30 @@ Explainability improves transparency, making it easier to communicate why certai
 ---
 
 ## Repository Structure
+
+```
+.
+├── data
+├── notebooks
+├── images
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Strategic Perspective
+
+I intentionally kept the dataset constant from the first project to maintain experimental control. This makes comparisons across models more meaningful: improvements (or lack of improvements) reflect modeling choices rather than new variables.
+
+The main takeaway is practical: **advanced algorithms do not automatically solve structural uncertainty**. In operational systems, the biggest gains often come from better context data, not only stronger models. This mindset - balancing performance with realism and interpretability - is central to how I approach analytics and decision support.
+
+---
+
+## Conclusion
+
+This project extends the original Tübingen delay analysis by focusing on advanced modeling and interpretability.
+
+Random Forest provided a strong baseline, and CatBoost achieved the best error performance for routine delay prediction. However, detecting critical delays remained challenging across models, reinforcing that rare disruptions require additional contextual data.
+
+By combining model benchmarking with SHAP explainability, the project delivers both predictive outputs and transparent operational insight that can support planning, monitoring, and communication.
