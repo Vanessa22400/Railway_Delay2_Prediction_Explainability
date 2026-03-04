@@ -148,11 +148,11 @@ Different service categories show different delay contributions, supporting diff
 Explainability improves transparency, making it easier to communicate why certain situations are predicted as higher risk.
 
 
-![SHAP summary plot](Images/1.Global Feature Importance.png)  
+![SHAP summary plot](Images/global_feature_importance.png)  
 
 *Global SHAP summary showing which features drive delay predictions.*  
 
-![SHAP bar importance](Images/2.Feature Impact Distribution.png)  
+![SHAP bar importance](Images/feature_impact_distribution.png)  
 
 *Global feature importance ranked by SHAP contribution.*
 
