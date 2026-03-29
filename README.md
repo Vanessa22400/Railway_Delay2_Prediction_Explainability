@@ -1,4 +1,4 @@
-# Railway Delay Prediction and Explainability: A Comparative Study in Tübingen (Germany)
+# Railway Delay Prediction & Explainability - Tübingen, Germany
 *Advanced machine learning and SHAP interpretability to improve delay prediction and reliability insights in Germany’s national railway system (Deutsche Bahn).*
 
 **Dataset**: 12 months of railway operations (24,760 cleaned records)  
