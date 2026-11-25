@@ -197,10 +197,11 @@ Overall, classification performance remained similar to the baseline model. Reca
 
 ## Next Steps
 
-- Integrate external data (weather, maintenance schedules, disruption logs) to improve critical delay recall
-- Add uncertainty estimation to better communicate prediction confidence
-- Test time-aware validation to reflect operational sequencing
-- Build a monitoring dashboard to track reliability by service category and route corridor
+- Integrate external data (weather, maintenance schedules, disruption logs) to improve critical delay recall.
+- Add uncertainty estimation to better communicate prediction confidence.
+- Extend offline model monitoring toward automated monitoring workflows.
+
+**Completed extension:** Time-aware validation, model monitoring and drift detection are implemented in [Stage 3 — Model Monitoring & Drift Detection](model_monitoring/README.md).
 
 ---
 
