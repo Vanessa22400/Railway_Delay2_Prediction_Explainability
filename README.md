@@ -9,13 +9,17 @@
 
 ## Project Series
 
-This project is part of a two-stage analysis of railway delays at **Tübingen Hauptbahnhof**.
+This project is part of a three-stage Data Science study of railway delays at **Tübingen Hauptbahnhof, Germany**.
 
-1. **Railway Delay Analysis - Tübingen (Germany)**  
-Exploratory analysis and statistical investigation of operational delay patterns.
+1. **Railway Delay Analysis**  
+   Exploratory analysis, statistical investigation and operational delay patterns.
 
-2. **Railway Delay Modeling & Explainability - Tübingen (Germany)** *(this project)*  
-Application of advanced machine learning models and explainability techniques to understand the structural drivers of railway delays.
+2. **Railway Delay Prediction & Explainability** *(this stage)*  
+   Advanced machine learning, feature engineering, model comparison and SHAP interpretability.
+
+3. **[Model Monitoring & Drift Detection](model_monitoring/README.md)**  
+   An MLOps extension using Evidently AI to investigate data drift, prediction drift, temporal model performance, generalization risks and monitoring alerts.
+
 
 ---
 
